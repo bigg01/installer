@@ -71,7 +71,7 @@ var (
 			Use:   "ignition-configs",
 			Short: "Generates the Ignition Config asset",
 			// FIXME: add longer descriptions for our commands with examples for better UX.
-			// Long:  "",
+			Long:  "including fix for docker ignore",
 		},
 		assets: targetassets.IgnitionConfigs,
 	}
