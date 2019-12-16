@@ -120,7 +120,11 @@ func SubnetCIDR(cidr *net.IPNet) error {
 		return fmt.Errorf("invalid network address. got %s, expecting %s", cidr.String(), (&net.IPNet{IP: nip, Mask: cidr.Mask}).String())
 	}
 	if DoCIDRsOverlap(cidr, dockerBridgeCIDR) {
-		return fmt.Errorf("overlaps with default Docker Bridge subnet (%v)", cidr.String())
+	// guo return fmt.Errorf("overlaps with default Docker Bridge subnet (%v)", cidr.String())
+		fmt.Println("GUO: no need for docker check we using CRI-o")
+		fmt.Println("ignore overlaps with default Docker Bridge subnet: ", cidr.String())
+		//fmt.Fprintf("overlaps with default Docker Bridge subnet (%v)", cidr.String())
+		return nil
 	}
 	return nil
 }
